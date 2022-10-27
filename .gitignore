@@ -1,0 +1,10 @@
+.bundle/
+.rspec
+.ruby-version
+coverage/
+db/*.sqlite3
+db/schema.rb
+lib/tasks/
+log/
+tmp/
+vendor/bundle
