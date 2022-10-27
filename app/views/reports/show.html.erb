@@ -1,24 +1,36 @@
 <!--  app/views/reports/show.html.erb -->
-<h2>Details about <em><%= @report.title %></em></h2>
+<h2>Specific Details of Issue </h2>
 
 <ul id="details">
-  <li>
-    Rating:
-    <%= @report.rating %>
+  <h2 style="font-size: 22px;">Location: </h2>
+
+  <li style="margin-left: 14px;">    
+    Building:
+    <%= @report.building %>
   </li>
-  <li>
-    Released on:
-    <%= @report.release_date.strftime("%B %d, %Y") %>
+  <li style="margin-left: 14px;">
+    Area:
+    <%= @report.area %> 
+  </li>
+  <br>
+  <h2 style="font-size: 22px;">Problem Information: </h2>
+  <li style="margin-left: 14px;">
+    Problem Type:
+    <%= @report.problemtype %> 
+  </li>
+  <li style="margin-left: 14px;">
+    Emergency Level:
+    <%= @report.emergencylevel %> 
+  </li>
+  <li style="margin-left: 14px;">
+    Complete Status:
+    <%= @report.status %> 
   </li>
 </ul>
 
-<h3>Description:</h3>
-<p id="description">
-  <%= @report.description %>
-</p>
 
 <div class="row">
-  <%= link_to 'Edit', edit_report_path(@report), :class => 'btn btn-primary col-2' %>
-  <%= link_to 'Delete', report_path(@report), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+  <%= link_to 'Management', edit_report_path(@report), :class => 'btn btn-primary col-2' %>
+  <%= link_to 'Mark as complete', report_path(@report), 'data-method' => 'delete', 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
   <%= link_to 'Back to report list', reports_path, :class => 'btn btn-primary col-2' %>
 </div>

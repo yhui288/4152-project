@@ -13,10 +13,10 @@ Scenario: User reports a new issue
   Given I am on the report page
 	Then I check "type-heat"
 	Then I check "level-emergent"
-    And  I fill in "Building" with "Mudd"
-    And  I fill in "Room Number" with "Lounge"
-    And  I fill in "Leave your UNI" with "dh3071"
-    And  I press "Publish"
+    And I fill in "Building" with "Mudd"
+    And I fill in "Room Number" with "Lounge"
+    And I fill in "Leave your UNI" with "dh3071"
+    And I press "Publish"
 	Then I should be on home page
 	Then I should see "successfully published"
 
@@ -24,19 +24,19 @@ Scenario: User reports an existing issue
 	Given I am on the report page
 	Then I check "type-heat"
 	Then I check "level-emergent"
-    And  I fill in "Building" with "Mudd"
-    And  I fill in "Room Number" with "Lounge"
-    And  I fill in "Leave your UNI" with "dh3071"
- 	  And  I press "Publish"
+    And I fill in "Building" with "Mudd"
+    And I fill in "Room Number" with "Lounge"
+    And I fill in "Leave your UNI" with "dh3071"
+ 	  And I press "Publish"
   Then I should be on home page
   Then I should see "Already been published"
 
 Scenario: Manager marks an existing issue as complete
 	Given I am on the manager page
 	Then I click complete for report 3
-  Then  I should be on the home page
+  Then I should be on the home page
 
-Scenario: Manager sorts existing  issues by Emergency Level
+Scenario: Manager sorts existing issues by Emergency Level
   Given I am on the manager page
   When I follow "Emergency Level"
   Then I should see "Butler" before "Uris"

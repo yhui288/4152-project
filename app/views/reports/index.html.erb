@@ -1,6 +1,8 @@
 
 <!--  This file is app/views/reports/index.html.erb -->
-<h2>ALL Exsisting Reports</h2>
+
+
+<h2>ALL Existing Reports</h2>
 
 <%#  Part 2: Start here... %>
 
@@ -34,10 +36,10 @@
           <%= report.status %>
         </td>
         <td>
-          <%= link_to "More about" %>
+          <%= link_to "More about", report_path(report)%>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= link_to 'Start New Report', new_report_path, :class => 'btn btn-primary' %>

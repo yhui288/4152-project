@@ -15,8 +15,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = Report.create!(report_params)
-    flash[:notice] = "#{@report.title} was successfully created."
+    flash[:notice] = Report.check_and_create(report_params)
     redirect_to reports_path
   end
 
@@ -27,14 +26,14 @@ class ReportsController < ApplicationController
   def update
     @report = Report.find params[:id]
     @report.update_attributes!(report_params)
-    flash[:notice] = "#{@report.title} was successfully updated."
+    flash[:notice] = "#{@report.id} was successfully updated."
     redirect_to report_path(@report)
   end
 
   def destroy
     @report = Report.find(params[:id])
     @report.destroy
-    flash[:notice] = "Report '#{@report.title}' deleted."
+    flash[:notice] = "Report '#{@report.id}' deleted."
     redirect_to reports_path
   end
 
@@ -42,6 +41,6 @@ class ReportsController < ApplicationController
   # Making "internal" methods private is not required, but is a common practice.
   # This helps make clear which methods respond to requests, and which ones do not.
   def report_params
-    params.require(:report).permit(:title, :rating, :description, :release_date)
+    params.require(:report).permit(:building, :area, :problemtype, :emergencylevel)
   end
 end
