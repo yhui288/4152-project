@@ -38,16 +38,16 @@ h1 a {
   background: transparent;
   color: white;
 }
-table#movies {
+table#reports {
   border-collapse: collapse;
   width: 100%;
   border-bottom: 2px solid black;
 }
-table#movies th {
+table#reports th {
   border: 2px solid black;
   font-weight: bold;
 }
-table#movies th, table#movies td {
+table#reports th, table#reports td {
   padding: 4px;
   text-align: left;
 }

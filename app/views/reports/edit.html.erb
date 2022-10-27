@@ -1,0 +1,12 @@
+<h2>Edit Existing Report</h2>
+<%= form_tag report_path(@report), :method => :put do %>
+  <%= label :report, :title, 'Title', :class => 'col-form-label' %>
+  <%= text_field :report, 'title', :class => 'form-control' %>
+  <%= label :report, :rating, 'Rating', :class => 'col-form-label'  %>
+  <%= select :report, :rating, ['G','PG','PG-13','R','NC-17'], {}, {:class => 'form-control col-1'} %>
+  <%= label :report, :release_date, 'Released On', :class => 'col-form-label'  %>
+  <%= date_select :report, :release_date, {}, :class => 'form-control col-2 d-inline' %>
+  <br/>
+  <%= submit_tag 'Update Report Info', :class => 'btn btn-primary' %>
+  <%= link_to 'Cancel', reports_path, :class => 'btn btn-secondary' %>
+<% end %>
