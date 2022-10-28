@@ -12,6 +12,8 @@ class ReportsController < ApplicationController
 
   def new
     # default: render 'new' template
+    @prefilled_building = params[:report][:building]
+    @prefilled_area = params[:report][:area]
   end
 
   def create
