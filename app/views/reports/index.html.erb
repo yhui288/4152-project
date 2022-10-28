@@ -12,7 +12,7 @@
       <th>Building</th>
       <th>Area</th>
       <th>ProblemType</th>
-      <th>EmergencyLevel</th>
+      <th><%= link_to 'Emergency Level', reports_path(:emergency_sort => @emergency_sort), :id => 'emergency_header' %></th>
       <th>Status</th>
       <th>More Info</th>
     </tr>

@@ -7,7 +7,20 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all
+    if params[:emergency_sort].nil?
+      session[:emergency_sort] = "1"
+      redirect_to reports_path(:emergency_sort => session[:emergency_sort])
+    end    
+    
+    if params[:emergency_sort] == "1"
+      @reports = Report.order(emergencylevel: :asc)
+      @emergency_sort = "0"
+    else 
+      @reports = Report.all
+      @emergency_sort = "1"
+    end
+
+    session[:emergency_sort]=params[:emergency_sort]
   end
 
   def new
@@ -23,7 +36,11 @@ class ReportsController < ApplicationController
   end
 
   def create
-    flash[:notice] = Report.check_and_create(report_params)
+    if report_params[:uni].match?(/^[a-z][a-z][0-9][0-9][0-9][0-9]$/x)
+      flash[:notice] = Report.check_and_create(report_params)
+    else
+      flash[:notice] = "invalid UNI"
+    end
     redirect_to reports_path
   end
 
@@ -41,7 +58,7 @@ class ReportsController < ApplicationController
   def destroy
     @report = Report.find(params[:id])
     @report.destroy
-    flash[:notice] = "Report '#{@report.id}' deleted."
+    flash[:notice] = "Report '#{@report.id}' completed."
     redirect_to reports_path
   end
 
@@ -49,6 +66,6 @@ class ReportsController < ApplicationController
   # Making "internal" methods private is not required, but is a common practice.
   # This helps make clear which methods respond to requests, and which ones do not.
   def report_params
-    params.require(:report).permit(:building, :area, :problemtype, :emergencylevel)
+    params.require(:report).permit(:building, :area, :problemtype, :emergencylevel, :uni)
   end
 end

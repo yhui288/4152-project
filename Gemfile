@@ -5,6 +5,7 @@ gem 'rails', '4.2.10'
 
 # for Heroku deployment 
 group :development, :test do
+  gem 'rerun'
   gem 'sqlite3', '1.3.11'
   gem 'byebug'
   gem 'database_cleaner', '1.4.1'
