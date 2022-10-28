@@ -25,6 +25,8 @@ module NavigationHelpers
     when /^the manager page$/ then '/reports'
     when /^the QR code generation page$/ then '/qrcode'
     when /^home page$/ then '/reports'
+    when /^the detail page for Report "(.*)"$/ then report_path(Report.find($1))
+    when /^the edit page for Report "(.*)"$/ then edit_report_path(Report.find($1))
 
     else
       begin
