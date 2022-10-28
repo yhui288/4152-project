@@ -1,12 +1,15 @@
 class PagesController < ApplicationController
     def home; end
     
-    def qr_code_generate; end
+    def qrcode_generate; end
   
-    def qr_code_download
+    def qrcode_download
         # https://mighty-brushlands-39335.herokuapp.com
         # http://localhost:3000
-        url = 'https://mighty-brushlands-39335.herokuapp.com%s' % [new_report_path(:report => {:building => params[:report][:building], :area => params[:report][:area]})]
-        send_data RQRCode::QRCode.new(url).as_png(size: 300), type: 'image/png', disposition: 'attachment'
+        building = params[:report][:building]
+        area = params[:report][:area]
+        url = 'https://mighty-brushlands-39335.herokuapp.com%s' % [new_report_path(:report => {:building => building, :area => area})]
+        fn = '%s_%s_qrcode.png' % [building.downcase, area.downcase]
+        send_data RQRCode::QRCode.new(url).as_png(size: 300), type: 'image/png', filename: fn, disposition: 'attachment'
     end
 end

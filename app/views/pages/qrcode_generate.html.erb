@@ -3,12 +3,12 @@
 
 <h2>QR Code Generator</h2>
 
-<%= form_tag download_qr_code_path, :method => :get, :class => 'form' do %>
+<%= form_tag qrcode_download_path, :method => :get, :class => 'form' do %>
   <%= label :report, :building, 'Location: Building', :class => 'col-form-label' %>
   <%= text_field :report, :building, :class => 'form-control' %>
   <%= label :report, :area, 'Location: Area', :class => 'col-form-label' %>
   <%= text_field :report, :area, :class => 'form-control' %>
   <br/>
-  <%= submit_tag 'Generate QR code', :class => 'btn btn-primary' %>
+  <%= submit_tag 'Generate', :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', reports_path, :class => 'btn btn-secondary' %>
 <% end %>

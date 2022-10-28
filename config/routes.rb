@@ -4,6 +4,6 @@ ColumbiaRepairReportPlatform::Application.routes.draw do
   root :to => 'pages#home'
 
   # routes for pages
-  get 'qr_code_generate', to: 'pages#qr_code_generate', as: 'generate_qr_code'
-  get 'qr_code_download', to: 'pages#qr_code_download', as: 'download_qr_code'
+  get 'qrcode', to: 'pages#qrcode_generate', as: 'qrcode'
+  get 'qrcode_download', to: 'pages#qrcode_download', as: 'qrcode_download'
 end
