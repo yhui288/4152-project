@@ -5,16 +5,16 @@ RSpec.describe ReportsController, type: :controller do
 
   describe "creates" do
     it "reports with valid parameters" do
-      get :create, {:report => {:uni => 'jg4403',:building => 'Pumpin',:area => 'Lab1034',
+      get :create, {:report => {:uni => 'jg4403',:building => 'Pupin',:area => 'Lab1034',
                                 :problemtype=> 'Electronic', :emergencylevel => 'Emergent',
                                 :status => 'Uncomplete'}}
       expect(flash[:notice]).to match(/successfully published/)
       expect(response).to redirect_to reports_path
-      Report.find_by(:building => 'Pumpin').destroy
+      Report.find_by(:building => 'Pupin').destroy
     end
 
     it "reports with invalid uni" do
-      get :create, {:report => {:uni => '!!!',:building => 'Pumpin',:area => 'Lab1034',
+      get :create, {:report => {:uni => '!!!',:building => 'Pupin',:area => 'Lab1034',
                                 :problemtype=> 'Electronic', :emergencylevel => 'Emergent',
                                 :status => 'Uncomplete'}}
       expect(flash[:notice]).to match(/invalid UNI/)
@@ -22,13 +22,13 @@ RSpec.describe ReportsController, type: :controller do
     end
 
     it "reports with dupliacted examples" do
-      get :create, {:report => {:uni => 'jg4403',:building => 'Pumpin',:area => 'Lab1034',
+      get :create, {:report => {:uni => 'jg4403',:building => 'Pupin',:area => 'Lab1034',
                                 :problemtype=> 'Electronic', :emergencylevel => 'Emergent',
                                 :status => 'Uncomplete'}}
       expect(flash[:notice]).to match(/successfully published/)
       expect(response).to redirect_to reports_path
 
-      get :create, {:report => {:uni => 'jg4403',:building => 'Pumpin',:area => 'Lab1034',
+      get :create, {:report => {:uni => 'jg4403',:building => 'Pupin',:area => 'Lab1034',
                                 :problemtype=> 'Electronic', :emergencylevel => 'Emergent',
                                 :status => 'Uncomplete'}}
       expect(flash[:notice]).to match(/Already been published/)
