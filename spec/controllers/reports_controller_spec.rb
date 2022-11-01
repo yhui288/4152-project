@@ -2,13 +2,6 @@ require 'rails_helper'
 
 
 RSpec.describe ReportsController, type: :controller do
-  before(:all) do
-    if Report.where(:building => 'Butler').empty?
-      Report.create(:building => 'Butler',:area => 'Restroom 4th FL',
-         :problemtype=> 'Plumbing', :emergencylevel => 'Emergent',
-         :status => 'Uncomplete')
-    end
-  end
 
   describe "creates" do
     it "reports with valid parameters" do
