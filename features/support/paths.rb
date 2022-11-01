@@ -21,13 +21,13 @@ module NavigationHelpers
     #   when /^(.*)'s profile page$/i
     #     user_profile_path(User.find_by_login($1))
 
-    when /^the report page$/ then '/reports/new'
+    when /^the submit report page$/ then '/reports/new'
     when /^the manager page$/ then '/reports'
     when /^the QR code generation page$/ then '/qrcode'
-    when /^home page$/ then '/reports'
+    when /^the reports page$/ then '/reports'
     when /^the detail page for Report "(.*)"$/ then report_path(Report.find($1))
     when /^the edit page for Report "(.*)"$/ then edit_report_path(Report.find($1))
-    when /^the report page of "(.*)" in "(.*)"$/ then new_report_path(:report => {:building => $2, :area => $1})
+    when /^the submit report page of "(.*)" in "(.*)"$/ then new_report_path(:report => {:building => $2, :area => $1})
 
     else
       begin
