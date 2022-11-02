@@ -49,8 +49,6 @@ class ReportsController < ApplicationController
     else
       flash[:notice] = "invalid UNI"
     end
-
-    puts flash[:notice]
     
     redirect_to reports_path
   end
