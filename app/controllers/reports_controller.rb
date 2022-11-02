@@ -12,12 +12,15 @@ class ReportsController < ApplicationController
 
     @reports = Report.where(status: "Uncompleted")
 
+    puts params
+
     if !params[:show_complete].nil?
       @reports = Report
     end
     
     if !params[:emer_only].nil?
       @reports = @reports.where(emergencylevel: "Urgent")
+      puts @reports
     end
 
     if @reports == Report
@@ -32,7 +35,6 @@ class ReportsController < ApplicationController
     # default: render 'new' template
     @prefilled_building = ''
     @prefilled_area = ''
-    puts params
     if params[:report] != nil
       building = params[:report][:building]
       area = params[:report][:area]
