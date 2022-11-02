@@ -74,8 +74,8 @@ RSpec.describe ReportsController, type: :controller do
   describe "filter by emergency level" do
     before do
       reports = [
-        {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor classroom', :problemtype => 'Electronic', :emergencylevel => 'Urgent',:status => 'Uncompleted'},
-        {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor restroom', :problemtype => 'Floor', :emergencylevel => 'Ordinary',:status => 'Uncompleted'}
+        {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor classroom', :problemtype => 'Electronic', :emergencylevel => 'Urgent', :status => 'Uncompleted'},
+        {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor restroom', :problemtype => 'Floor', :emergencylevel => 'Ordinary', :status => 'Uncompleted'}
       ]
       reports.each do |report|
         get :create, {:report => report}
@@ -84,8 +84,10 @@ RSpec.describe ReportsController, type: :controller do
 
     it "filter urgent reports before normal reports" do
       get :index, {:emer_only => "1"}
-      expect(assigns(:reports)[0]['emergencylevel']).to eq 'Urgent'
       expect(assigns(:reports).length).to eq 1
+      assigns(:reports).each do |report|
+        expect(report['emergencylevel']).to eq 'Urgent'
+      end
       get :index, {:emer_only => "0"}
       expect(response).to have_http_status(:success)
     end
