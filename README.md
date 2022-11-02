@@ -25,8 +25,8 @@ git clone https://github.com/yhui288/Columbia-Repair-Report-Platform.git
 ```
 cd path_to_project_root_directory/
 bundle install --without production
-bundle exec db:migrate
-bundle exec db:seed
+bundle exec rake db:migrate
+bundle exec rake db:seed
 ```
 
 3. Test our project
@@ -53,3 +53,4 @@ bundle exec rails server
 - Refine the report form (add 'description' and image uploading)
 - Add login and role selection for managers
 - Add reports arrangement
+- ...
