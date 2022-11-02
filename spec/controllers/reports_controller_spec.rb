@@ -74,7 +74,9 @@ RSpec.describe ReportsController, type: :controller do
   describe "filter by emergency level" do
     before do
       reports = [
+        {:uni => 'yp2604', :building => 'Mudd', :area => '2st floor classroom', :problemtype => 'Electronic', :emergencylevel => 'Urgent', :status => 'Completed'},
         {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor classroom', :problemtype => 'Electronic', :emergencylevel => 'Urgent', :status => 'Uncompleted'},
+        {:uni => 'yp2604', :building => 'Mudd', :area => '2st floor restroom', :problemtype => 'Floor', :emergencylevel => 'Ordinary', :status => 'Completed'},
         {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor restroom', :problemtype => 'Floor', :emergencylevel => 'Ordinary', :status => 'Uncompleted'}
       ]
       reports.each do |report|
@@ -84,12 +86,40 @@ RSpec.describe ReportsController, type: :controller do
 
     it "filter urgent reports before normal reports" do
       get :index, {:emer_only => "1"}
-      expect(assigns(:reports).length).to eq 1
       assigns(:reports).each do |report|
         expect(report['emergencylevel']).to eq 'Urgent'
       end
       get :index, {:emer_only => "0"}
       expect(response).to have_http_status(:success)
     end
+
+    it "see completed" do
+      get :index
+      assigns(:reports).each do |report|
+        expect(report['status']).to eq 'Uncompleted'
+      end
+    end
+
+    it "see all" do
+      get :index,{:show_complete => "1"}
+      expect(assigns(:reports).length == 4)
+    end
   end
+
+  describe "mark as completed" do
+    before do
+      reports = [
+        {:uni => 'yp2604', :building => 'Mudd', :area => '1st floor classroom', :problemtype => 'Electronic', :emergencylevel => 'Urgent', :status => 'Uncompleted'}
+      ]
+      reports.each do |report|
+        get :create, {:report => report}
+      end
+    end
+    it "mark as completed" do
+      get :complete, {:id => 1}
+      expect(flash[:notice]).to match(/Marked as complete successful/)
+      expect(response).to redirect_to report_path(1)
+    end
+  end
+
 end

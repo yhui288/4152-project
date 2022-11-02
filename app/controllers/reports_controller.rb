@@ -32,7 +32,6 @@ class ReportsController < ApplicationController
     # default: render 'new' template
     @prefilled_building = ''
     @prefilled_area = ''
-    puts params
     if params[:report] != nil
       building = params[:report][:building]
       area = params[:report][:area]
@@ -47,8 +46,6 @@ class ReportsController < ApplicationController
     else
       flash[:notice] = "invalid UNI"
     end
-
-    puts flash[:notice]
     
     redirect_to reports_path
   end
