@@ -5,6 +5,18 @@
 <h2>ALL Existing Reports</h2>
 
 <%#  Part 2: Start here... %>
+<%= form_tag reports_path, method: :get, id: 'filter_form' do %>
+  Filter:
+  <div class="form-check  form-check-inline">
+    <%= label_tag "emer_only", "Show Urgent Reports Only", class: 'form-check-label' %>
+    <%= check_box_tag "emer_only", "1",  @emer_only_checked, class: 'form-check-input' %>
+  </div>
+  <div class="form-check  form-check-inline">
+    <%= label_tag "show_complete", "Show Completed Reports", class: 'form-check-label' %>
+    <%= check_box_tag "show_complete", "1",  @completed_checked, class: 'form-check-input' %>
+  </div>
+  <%= submit_tag 'Filter', id: 'filter_submit', class: 'btn btn-primary' %>
+<% end %>
 
 <table class="table table-striped col-md-12" id="reports">
   <thead>
@@ -12,7 +24,7 @@
       <th>Building</th>
       <th>Area</th>
       <th>ProblemType</th>
-      <th><%= link_to 'Emergency Level', reports_path(:emergency_sort => @emergency_sort), :id => 'emergency_header' %></th>
+      <th>Emergency Level</th>
       <th>Status</th>
       <th>More Info</th>
     </tr>

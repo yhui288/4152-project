@@ -15,7 +15,7 @@ Background: reports in database
 Scenario: User reports a new issue
   Given I am on the submit report page
   When I select "Laundry" from "Problem Type"
-  When I select "Emergent" from "Emergency Level"
+  When I select "Urgent" from "Emergency Level"
     And I fill in "Building" with "Mudd"
     And I fill in "Area" with "Lounge"
     And I fill in "Please enter your UNI" with "dh3071"
@@ -26,7 +26,7 @@ Scenario: User reports a new issue
 Scenario: User reports a new issue with invalid uni
   Given I am on the submit report page
   When I select "Electronic" from "Problem Type"
-  When I select "Emergent" from "Emergency Level"
+  When I select "Urgent" from "Emergency Level"
     And I fill in "Building" with "Mudd"
     And I fill in "Area" with "Lounge"
     And I fill in "Please enter your UNI" with "xxx"
@@ -37,7 +37,7 @@ Scenario: User reports a new issue with invalid uni
 Scenario: User reports an existing issue
   Given I am on the submit report page
   When I select "Plumbing" from "Problem Type"
-  When I select "Emergent" from "Emergency Level"
+  When I select "Urgent" from "Emergency Level"
     And I fill in "Building" with "Butler"
     And I fill in "Area" with "Restroom 4th FL"
     And I fill in "Please enter your UNI" with "dh3071"
@@ -50,7 +50,7 @@ Scenario: User reports a new issue by scanning QR code
   Then the "Location: Building" field should contain "Mudd"
     And the "Location: Area" field should contain "1st floor restroom"
   When I select "Other" from "Problem Type"
-  When I select "Emergent" from "Emergency Level"
+  When I select "Urgent" from "Emergency Level"
     And I fill in "Please enter your UNI" with "dh3071"
     And I press "Publish"
    Then I should be on the reports page

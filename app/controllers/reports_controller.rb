@@ -7,20 +7,25 @@ class ReportsController < ApplicationController
   end
 
   def index
-    if params[:emergency_sort].nil?
-      session[:emergency_sort] = "1"
-      redirect_to reports_path(:emergency_sort => session[:emergency_sort])
-    end    
+    @completed_checked = params[:show_complete]
+    @emer_only_checked = params[:emer_only]
+
+    @reports = Report.where(status: "Uncompleted")
+
+    if !params[:show_complete].nil?
+      @reports = Report
+    end
     
-    if params[:emergency_sort] == "1"
-      @reports = Report.order(emergencylevel: :asc)
-      @emergency_sort = "0"
-    else 
-      @reports = Report.all
-      @emergency_sort = "1"
+    if !params[:emer_only].nil?
+      @reports = @reports.where(emergencylevel: "Urgent")
     end
 
-    session[:emergency_sort]=params[:emergency_sort]
+    if @reports == Report
+      @reports = Report.all
+    end
+
+    session[:emer_only]=params[:emer_only]
+    session[:show_complete] = params[:show_complete]
   end
 
   def new
@@ -42,11 +47,22 @@ class ReportsController < ApplicationController
     else
       flash[:notice] = "invalid UNI"
     end
+
+    puts flash[:notice]
+    
     redirect_to reports_path
   end
 
   def edit
     @report = Report.find params[:id]
+  end
+
+  def complete
+    report = Report.find params[:id]
+    flash[:notice] = "Marked as complete successful"
+    report.status = "Completed"
+    report.save
+    redirect_to report_path(report)
   end
 
   def update

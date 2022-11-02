@@ -65,6 +65,14 @@ When /^(?:|I )fill in "([^"]*)" for "([^"]*)"$/ do |value, field|
   fill_in(field, :with => value)
 end
 
+When /^(?:|I )check (?:the\s+)?"([^"]*)"(?:\s*checkbox)?$/ do |field|
+  check(field)
+end
+
+When /^(?:|I )uncheck (?:the\s+)?"([^"]*)"(?:\s*checkbox)?$/ do |field|
+  uncheck(field)
+end
+
 # Use this to fill in an entire form with data from a table. Example:
 #
 #   When I fill in the following:
