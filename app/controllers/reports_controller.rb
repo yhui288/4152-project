@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
     if !params[:show_complete].nil?
       @reports = Report
     end
-    
+
     if !params[:emer_only].nil?
       @reports = @reports.where(emergencylevel: "Urgent")
       puts @reports
@@ -45,12 +45,12 @@ class ReportsController < ApplicationController
   end
 
   def create
-    if report_params[:uni].match?(/^[a-z][a-z][0-9][0-9][0-9][0-9]$/x)
+    if report_params[:uni].match?(/^[a-z][a-z][0-9][0-9][0-9][0-9]$/x) or report_params[:uni].match?(/^[a-z][a-z][a-z][0-9][0-9][0-9][0-9]$/x)
       flash[:notice] = Report.check_and_create(report_params)
     else
       flash[:notice] = "invalid UNI"
     end
-    
+
     redirect_to reports_path
   end
 
@@ -84,6 +84,6 @@ class ReportsController < ApplicationController
   # Making "internal" methods private is not required, but is a common practice.
   # This helps make clear which methods respond to requests, and which ones do not.
   def report_params
-    params.require(:report).permit(:building, :area, :problemtype, :emergencylevel, :uni)
+    params.require(:report).permit(:building, :area, :problemtype, :emergencylevel, :uni, :description, :file)
   end
 end

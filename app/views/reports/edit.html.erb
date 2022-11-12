@@ -1,14 +1,18 @@
 <h2>Manage Current Report</h2>
 
-<%= form_tag report_path(@report), :method => :put do %>
+<%= form_tag report_path(@report), :method => :put, :multipart => true do %>
   <%= label :report, :building, 'Location: Building', :class => 'col-form-label' %>
   <%= text_field :report, :building, :class => 'form-control' %>
   <%= label :report, :area, 'Location: Area', :class => 'col-form-label' %>
   <%= text_field :report, :area, :class => 'form-control' %>
   <%= label :report, :problemtype, 'Problem Type', :class => 'col-form-label'%>
-  <%= select :report, :problemtype, ['Carpentry', 'Electronic','Floor','Furniture','Laundry','Laundry','Mechanical','Pest Control','Housekeeping','Heating/Air Conditioning', 'Plumbing', 'Other'], {}, {:class => 'form-control col-3'} %>
+  <%= select :report, :problemtype, ['Carpentry', 'Electronic','Floor','Furniture','Laundry','Mechanical','Pest Control','Housekeeping','Heating/Air Conditioning', 'Plumbing', 'Other'], {}, {:class => 'form-control col-3'} %>
   <%= label :report, :emergencylevel, 'Emergency Level', :class => 'col-form-label'  %>
   <%= select :report, :emergencylevel, ['Emergent','Ordinary'], {}, {:class => 'form-control col-3'} %>
+  <%= label :report, :description, 'Description', :class => 'col-form-label' %>
+  <%= text_area :report, :description, :class => 'form-control' %>
+  <%= label :report, :file, 'Image', :class => 'col-form-label' %>
+  <%= file_field :report, :file, :class => 'form-control' %>
   <br/>
   <%= submit_tag 'Update Report Info', :class => 'btn btn-success' %>
   <%= link_to 'Cancel', reports_path, :class => 'btn btn-secondary' %>
