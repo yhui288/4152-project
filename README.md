@@ -54,3 +54,8 @@ bundle exec rails server
 - Add login and role selection for managers
 - Add reports arrangement
 - ...
+
+## Reference
+1. User login system
+    - [Creating a User Login System - Ruby on Rails](https://dev.to/kjdowns/creating-a-user-login-system-ruby-on-rails-2kl2)
+    - [Authentication with Bcrypt](https://www.ananunesdasilva.com/posts/authentication-with-bcrypt)

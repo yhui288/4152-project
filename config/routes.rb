@@ -8,4 +8,13 @@ ColumbiaRepairReportPlatform::Application.routes.draw do
   # routes for qrcode
   get 'qrcode', to: 'pages#qrcode_generate', as: 'qrcode'
   get 'qrcode_download', to: 'pages#qrcode_download', as: 'qrcode_download'
+
+  # manager routes
+  resources :managers, only: [:new, :create, :edit, :update, :show, :destroy]
+
+  # session routes
+  get '/login', to: 'sessions#login', as: 'login'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
+  post '/logout', to: 'sessions#destroy'
 end

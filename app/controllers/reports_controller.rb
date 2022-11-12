@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, only: [:index, :show]
 
   def show
     id = params[:id] # retrieve report ID from URI route
