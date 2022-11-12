@@ -19,6 +19,7 @@ Scenario: User reports a new issue
     And I fill in "Building" with "Mudd"
     And I fill in "Area" with "Lounge"
     And I fill in "Please enter your UNI" with "dh3071"
+    And I fill in "Description" with "Laundry Machine Failed"
     And I press "Publish"
   Then I should be on the reports page
   Then I should see "successfully published"
@@ -40,7 +41,7 @@ Scenario: User reports an existing issue
   When I select "Urgent" from "Emergency Level"
     And I fill in "Building" with "Butler"
     And I fill in "Area" with "Restroom 4th FL"
-    And I fill in "Please enter your UNI" with "dh3071"
+    And I fill in "Please enter your UNI" with "dch3071"
     And I press "Publish"
   Then I should be on the reports page
   Then I should see "Already been published"

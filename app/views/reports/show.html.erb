@@ -4,27 +4,35 @@
 <ul id="details">
   <h2 style="font-size: 22px;">Location: </h2>
 
-  <li style="margin-left: 14px;">    
+  <li style="margin-left: 14px;">
     Building:
     <%= @report.building %>
   </li>
   <li style="margin-left: 14px;">
     Area:
-    <%= @report.area %> 
+    <%= @report.area %>
   </li>
   <br>
   <h2 style="font-size: 22px;">Problem Information: </h2>
   <li style="margin-left: 14px;">
     Problem Type:
-    <%= @report.problemtype %> 
+    <%= @report.problemtype %>
   </li>
   <li style="margin-left: 14px;">
     Emergency Level:
-    <%= @report.emergencylevel %> 
+    <%= @report.emergencylevel %>
+  </li>
+  <li style="margin-left: 14px;">
+    Description:
+    <%= @report.description %>
+  </li>
+  <li style="margin-left: 14px;">
+    Image:
+    <%= image_tag @report.file_url, size: '100x100' %>
   </li>
   <li style="margin-left: 14px;">
     Complete Status:
-    <%= @report.status %> 
+    <%= @report.status %>
   </li>
 </ul>
 

@@ -12,6 +12,7 @@ RSpec.describe ReportsController, type: :controller do
       Report.find_by(:building => 'Pupin').destroy
     end
 
+
     it "reports with invalid uni" do
       get :create, {:report => {:uni => '!!!',:building => 'Pupin',:area => 'Lab1034',
                                 :problemtype=> 'Electronic', :emergencylevel => 'Urgent',
