@@ -10,6 +10,9 @@ class ReportsController < ApplicationController
   def index
     @completed_checked = params[:show_complete]
     @emer_only_checked = params[:emer_only]
+    @selected = params[:problem_type][:problem_type]
+
+    @problemlist = Report.problemlist.prepend("all")
 
     @reports = Report.where(status: "Uncompleted")
 
@@ -25,11 +28,17 @@ class ReportsController < ApplicationController
       @reports = Report.all
     end
 
+    if !params[:problem_type].nil? && params[:problem_type][:problem_type] != "all"
+      @reports = @reports.where(problemtype: params[:problem_type][:problem_type])
+    end
+
+
     session[:emer_only]=params[:emer_only]
     session[:show_complete] = params[:show_complete]
   end
 
   def new
+    @problemlist = Report.problemlist
     @prefilled_building = ''
     @prefilled_area = ''
     if params[:report] != nil

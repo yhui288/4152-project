@@ -50,9 +50,9 @@ bundle exec rails server
 
 ## TODO
 - Update UI: our project is built under the Homework's framework so the UIs is similar to homework and pretty simple now
-- Refine the report form (add 'description' and image uploading)
+<!-- - Refine the report form (add 'description' and image uploading)
 - Add login and role selection for managers
-- Add reports arrangement
+- Add reports arrangement -->
 - ...
 
 ## Reference

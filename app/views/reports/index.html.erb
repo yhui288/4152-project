@@ -15,6 +15,9 @@
     <%= label_tag "show_complete", "Show Completed Reports", class: 'form-check-label' %>
     <%= check_box_tag "show_complete", "1",  @completed_checked, class: 'form-check-input' %>
   </div>
+  <%= label "problem_type", "problem_type", 'Problem Type', :class => 'col-form-label'%>
+  <%= select "problem_type", "problem_type", @problemlist, {:selected=>@selected}, {:class => 'form-control col-3'} %>
+
   <%= submit_tag 'Filter', id: 'filter_submit', class: 'btn btn-primary' %>
 <% end %>
 

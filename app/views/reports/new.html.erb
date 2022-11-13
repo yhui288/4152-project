@@ -12,7 +12,7 @@
   <%= label :report, :file, 'Image', :class => 'col-form-label' %>
   <%= file_field :report, :file, :class => 'form-control' %>
   <%= label :report, :problemtype, 'Problem Type', :class => 'col-form-label'%>
-  <%= select :report, :problemtype, ['Carpentry', 'Electronic','Floor','Furniture','Laundry','Mechanical','Pest Control','Housekeeping','Heating/Air Conditioning', 'Plumbing', 'Other'], {}, {:class => 'form-control col-3'} %>
+  <%= select :report, :problemtype, @problemlist, {}, {:class => 'form-control col-3'} %>
   <%= label :report, :emergencylevel, 'Emergency Level', :class => 'col-form-label'  %>
   <%= select :report, :emergencylevel, ['Urgent','Ordinary'], {}, {:class => 'form-control col-3'} %>
   <br/>
