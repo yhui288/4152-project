@@ -10,14 +10,14 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe ManagersHelper, type: :helper do
-  describe "lionmail verification" do
-    it "valid email" do
-      expect(ManagersHelper.lionmail?("sy3006@columbia.edu")).to be true
+RSpec.describe ReportsHelper, type: :helper do
+  describe "uni verification" do
+    it "valid uni" do
+      expect(ReportsHelper.valid_uni?("sy3006")).to be true
     end
 
     it "invalid email" do
-      expect(ManagersHelper.lionmail?("alanyevs@gmail.com")).to be false
+        expect(ReportsHelper.valid_uni?("abc123")).to be false
     end
   end
 end

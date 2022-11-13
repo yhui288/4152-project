@@ -63,11 +63,11 @@ class ReportsController < ApplicationController
   end
 
   def addcmt
+    report = Report.find params[:id]
     if params[:comment][:cmt].blank?
       flash[:notice] = "Cannot add a blank comment"
     else 
       flash[:notice] = "Comment successfully added"
-      report = Report.find params[:id]
       report.comments.build(:comment => params[:comment][:cmt], :manager_id=>session[:manager_id])
       report.save
     end 
