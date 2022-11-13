@@ -24,11 +24,19 @@
   </li>
   <li style="margin-left: 14px;">
     Description:
+    <% if @report.description.blank? %>
+    No Description
+    <%else %>
     <%= @report.description %>
+    <%end%>
   </li>
   <li style="margin-left: 14px;">
     Image:
+    <% if @report.file_url.nil? %>
+    No Image
+    <%else %>
     <%= image_tag @report.file_url, size: '100x100' %>
+    <%end%>
   </li>
   <li style="margin-left: 14px;">
     Complete Status:
@@ -36,6 +44,18 @@
   </li>
 </ul>
 
+<h2 style="font-size: 22px;">Comments: </h2>
+<ul>
+  <%@report.comments.all.each do |cmt|%>
+  <li> <%= cmt.comment%> by <%= cmt.manager.name%> </li>
+  <% end %>
+  <li> 
+  <%= form_tag addcmt_report_path(@report), :class=> "inline" do %>
+  <%= text_field :comment, :cmt , :class => 'form-control inline' %>
+  <%= submit_tag 'Add comment', :class => 'btn btn-success inline' %>
+  <% end %>
+  </li>
+</ul>
 
 <div class="row">
   <%= link_to 'Management', edit_report_path(@report), :class => 'btn btn-success col-2' %>

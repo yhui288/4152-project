@@ -13,15 +13,12 @@ class ReportsController < ApplicationController
 
     @reports = Report.where(status: "Uncompleted")
 
-    puts params
-
     if !params[:show_complete].nil?
       @reports = Report
     end
 
     if !params[:emer_only].nil?
       @reports = @reports.where(emergencylevel: "Urgent")
-      puts @reports
     end
 
     if @reports == Report
@@ -33,7 +30,6 @@ class ReportsController < ApplicationController
   end
 
   def new
-    # default: render 'new' template
     @prefilled_building = ''
     @prefilled_area = ''
     if params[:report] != nil
@@ -45,13 +41,13 @@ class ReportsController < ApplicationController
   end
 
   def create
-    if report_params[:uni].match?(/^[a-z][a-z][0-9][0-9][0-9][0-9]$/x) or report_params[:uni].match?(/^[a-z][a-z][a-z][0-9][0-9][0-9][0-9]$/x)
+    if ReportsHelper.valid_uni?(report_params[:uni])
       flash[:notice] = Report.check_and_create(report_params)
     else
       flash[:notice] = "invalid UNI"
     end
 
-    redirect_to reports_path
+    redirect_to root_path
   end
 
   def edit
@@ -63,6 +59,18 @@ class ReportsController < ApplicationController
     flash[:notice] = "Marked as complete successful"
     report.status = "Completed"
     report.save
+    redirect_to report_path(report)
+  end
+
+  def addcmt
+    if params[:comment][:cmt].blank?
+      flash[:notice] = "Cannot add a blank comment"
+    else 
+      flash[:notice] = "Comment successfully added"
+      report = Report.find params[:id]
+      report.comments.build(:comment => params[:comment][:cmt], :manager_id=>session[:manager_id])
+      report.save
+    end 
     redirect_to report_path(report)
   end
 

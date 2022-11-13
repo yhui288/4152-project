@@ -7,7 +7,7 @@ class ManagersController < ApplicationController
     def create
         # TODO: check if a valid lionmail
         # check if email is lionmail
-        if !params[:manager][:email].include?("@columbia.edu")
+        if !ManagersHelper.lionmail?(params[:manager][:email])
             message = "Please use your lionmail."
             return redirect_to new_manager_path, notice: message
         end

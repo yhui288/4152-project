@@ -4,6 +4,7 @@ ColumbiaRepairReportPlatform::Application.routes.draw do
   root :to => 'pages#home'
 
   get 'report/:id/complete', to: 'reports#complete', as: :complete_report
+  post 'report/:id/comment', to:'reports#addcmt', as: :addcmt_report
 
   # routes for qrcode
   get 'qrcode', to: 'pages#qrcode_generate', as: 'qrcode'

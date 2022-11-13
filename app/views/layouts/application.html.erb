@@ -11,7 +11,13 @@
   <body>
     <%# These classes come from the Bootstrap CSS framework. %>
     <nav class="navbar navbar-expand-lg bg-success text-white mb-3">
-      <h1 class="title">Columbia Repair Report Platform!</h1>
+      <h1>
+      <% if logged_in?%>
+      <%= link_to "Columbia Repair Report Platform!",reports_path,:class => "title" %>
+      <%else%>
+      <%= link_to "Columbia Repair Report Platform!",root_path,:class => "title" %>
+      <%end%>
+      </h1>
       <%# TODO: align logout button to right %>
       <%= link_to 'Log Out', logout_path, :class => 'ml-auto btn btn-success' if logged_in? %>
     </nav>
