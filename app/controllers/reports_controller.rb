@@ -12,7 +12,7 @@ class ReportsController < ApplicationController
     @emer_only_checked = params[:emer_only]
     @selected = params[:problem_type][:problem_type]
 
-    @problemlist = Report.problemlist.prepend("all")
+    @problemlist = Report.problemlist.prepend("All")
 
     @reports = Report.where(status: "Uncompleted")
 
@@ -28,10 +28,9 @@ class ReportsController < ApplicationController
       @reports = Report.all
     end
 
-    if !params[:problem_type].nil? && params[:problem_type][:problem_type] != "all"
+    if !params[:problem_type].nil? && params[:problem_type][:problem_type] != "All"
       @reports = @reports.where(problemtype: params[:problem_type][:problem_type])
     end
-
 
     session[:emer_only]=params[:emer_only]
     session[:show_complete] = params[:show_complete]

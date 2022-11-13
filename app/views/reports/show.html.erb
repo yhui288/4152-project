@@ -42,20 +42,24 @@
     Complete Status:
     <%= @report.status %>
   </li>
-</ul>
-
-<h2 style="font-size: 22px;">Comments: </h2>
-<ul>
+  <br>
+  <h2 style="font-size: 22px;">Comments: </h2>
   <%@report.comments.all.each do |cmt|%>
-  <li> <%= cmt.comment%> by <%= cmt.manager.name%> </li>
+    <li style="margin-left: 14px;"> 
+      <%= cmt.manager.name%>: <%= cmt.comment%>
+    </li>
   <% end %>
-  <li> 
-  <%= form_tag addcmt_report_path(@report), :class=> "inline" do %>
-  <%= text_field :comment, :cmt , :class => 'form-control inline' %>
-  <%= submit_tag 'Add comment', :class => 'btn btn-success inline' %>
-  <% end %>
+  <li style="margin-left: 14px;"> 
+    <%= form_tag addcmt_report_path(@report) do %>
+      <div class="form-row">
+        <%= text_field :comment, :cmt, :class => 'form-control col-sm-5' %>
+        <%= submit_tag 'Add Comment', :class => 'btn btn-success' %>
+      </div>
+    <% end %>
   </li>
 </ul>
+
+<br>
 
 <div class="row">
   <%= link_to 'Management', edit_report_path(@report), :class => 'btn btn-success col-2' %>
