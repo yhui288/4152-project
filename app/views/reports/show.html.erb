@@ -64,9 +64,9 @@
 <div class="row">
   <%= link_to 'Management', edit_report_path(@report), :class => 'btn btn-success col-2' %>
   <% if @report.status == "Uncompleted"%>
-    <%= link_to 'Mark as complete', complete_report_path(@report), 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
+    <%= link_to 'Mark as Completed', complete_report_path(@report), 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
   <% else %>
     <div class="btn btn-primary col-2"> Already compeleted </div>
   <% end %>
-  <%= link_to 'Back to report list', reports_path, :class => 'btn btn-success col-2' %>
+  <%= link_to 'Back to Report List', reports_path(:problem_type => {:problem_type => "All"}), :class => 'btn btn-success col-2' %>
 </div>

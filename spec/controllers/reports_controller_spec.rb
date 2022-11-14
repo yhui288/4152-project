@@ -92,23 +92,23 @@ RSpec.describe ReportsController, type: :controller do
     end
 
     it "filter urgent reports before normal reports" do
-      get :index, {:emer_only => "1"}, {:manager_id => 1}
+      get :index, {:emer_only => "1", :problem_type => {:problem_type => "All"}}, {:manager_id => 1}
       assigns(:reports).each do |report|
         expect(report['emergencylevel']).to eq 'Urgent'
       end
-      get :index, {:emer_only => "0"}, {:manager_id => 1}
+      get :index, {:emer_only => "0", :problem_type => {:problem_type => "All"}}, {:manager_id => 1}
       expect(response).to have_http_status(:success)
     end
 
     it "see completed" do
-      get :index, {}, {:manager_id => 1}
+      get :index, {:problem_type => {:problem_type => "All"}}, {:manager_id => 1}
       assigns(:reports).each do |report|
         expect(report['status']).to eq 'Uncompleted'
       end
     end
 
     it "see all" do
-      get :index,{:show_complete => "1"}, {:manager_id => 1}
+      get :index,{:show_complete => "1", :problem_type => {:problem_type => "All"}}, {:manager_id => 1}
       expect(assigns(:reports).length == 4)
     end
   end

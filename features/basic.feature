@@ -21,7 +21,7 @@ Scenario: User reports a new issue
     And I fill in "Please enter your UNI" with "dh3071"
     And I fill in "Description" with "Laundry Machine Failed"
     And I press "Publish"
-  Then I should be on the reports page
+  Then I should be on the home page
   Then I should see "successfully published"
 
 Scenario: User reports a new issue with invalid uni
@@ -32,7 +32,7 @@ Scenario: User reports a new issue with invalid uni
     And I fill in "Area" with "Lounge"
     And I fill in "Please enter your UNI" with "xxx"
     And I press "Publish"
- Then I should be on the reports page
+ Then I should be on the home page
  Then I should see "invalid UNI"
 
 Scenario: User reports an existing issue
@@ -43,7 +43,7 @@ Scenario: User reports an existing issue
     And I fill in "Area" with "Restroom 4th FL"
     And I fill in "Please enter your UNI" with "dch3071"
     And I press "Publish"
-  Then I should be on the reports page
+  Then I should be on the home page
   Then I should see "Already been published"
 
 Scenario: User reports a new issue by scanning QR code
@@ -54,5 +54,5 @@ Scenario: User reports a new issue by scanning QR code
   When I select "Urgent" from "Emergency Level"
     And I fill in "Please enter your UNI" with "dh3071"
     And I press "Publish"
-   Then I should be on the reports page
+   Then I should be on the home page
  Then I should see "successfully published"
