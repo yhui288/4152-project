@@ -5,7 +5,6 @@ class ManagersController < ApplicationController
     end
 
     def create
-        # TODO: check if a valid lionmail
         # check if email is lionmail
         if !ManagersHelper.lionmail?(params[:manager][:email])
             message = "Please use your lionmail."
@@ -21,7 +20,7 @@ class ManagersController < ApplicationController
         @manager = Manager.new(manager_params)
         if @manager.save
             session[:manager_id] = @manager.id
-            return redirect_to reports_path(:problem_type => {:problem_type => "All"})
+            return redirect_to reports_path
         else
             message = "Invalid password. Please try again."
             return redirect_to new_manager_path, notice: message
