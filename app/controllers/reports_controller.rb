@@ -10,7 +10,12 @@ class ReportsController < ApplicationController
   def index
     @completed_checked = params[:show_complete]
     @emer_only_checked = params[:emer_only]
+    if params[:problem_type].nil?
+      params[:problem_type] = Hash.new
+      params[:problem_type][:problem_type] = "All"
+    end
     @selected = params[:problem_type][:problem_type]
+      
 
     @problemlist = Report.problemlist.prepend("All")
 
@@ -90,10 +95,10 @@ class ReportsController < ApplicationController
   end
 
   def destroy
-    @report = Report.find(params[:id])
-    @report.destroy
-    flash[:notice] = "Report '#{@report.id}' completed."
-    redirect_to reports_path
+    # @report = Report.find(params[:id])
+    # @report.destroy
+    # flash[:notice] = "Report '#{@report.id}' completed."
+    # redirect_to reports_path
   end
 
   private

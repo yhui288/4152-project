@@ -49,3 +49,71 @@ Scenario: Manager filters issues by Emergency Level
   Then I should not see "Wien"
 
 
+Scenario: Manager filters issues by Problem Type
+  When I login with email "yp2604@columbia.edu" and password "test123"
+  Given I am on the manager page
+  When I select "Laundry" from "Problem Type"
+  When I press "Filter"
+  Then I should not see "Wien"
+
+
+Scenario: Manager marks an existing issue as complete
+  When I login with email "yp2604@columbia.edu" and password "test123"
+	Given I am on the detail page for Report "2"
+  And I fill in "comment_cmt" with "this one is hard"
+  Then I press "Add Comment"
+  Then I should be on the detail page for Report "2"
+  Then I should see "this one is hard"
+  And I fill in "comment_cmt" with ""
+  Then I press "Add Comment"
+  Then I should be on the detail page for Report "2"
+  Then I should see "Cannot add a blank comment"
+
+
+Scenario: Manager plays with login
+  When I login with email "yp2604@columbia.edu" and password "wrongpwd"
+  Then I should see "Invalid email/password"
+  When I login with email "yp2604@columbia.edu" and password "test123"
+  Then I follow "Log Out"
+  Then I should be on the home page
+
+Scenario: Manager register
+  When I am on the login page
+  And I follow "Create Account"
+  Then I fill in "Name" with "Alan"
+  Then I fill in "Email" with "sy3006@columbia.edu"
+  Then I fill in "Password" with "asd123"
+  Then I fill in "Confirm Password" with "asd123"
+  Then I press "Sign Up"
+  Then I should be on the manager page
+
+
+Scenario: Manager failed to register(1)
+  When I am on the login page
+  And I follow "Create Account"
+  Then I fill in "Name" with "Alan"
+  Then I fill in "Email" with "sy3006@gmail.edu"
+  Then I fill in "Password" with "asd123"
+  Then I fill in "Confirm Password" with "asd123"
+  Then I press "Sign Up"
+  Then I should see "Please use your lionmail."
+
+Scenario: Manager failed to register(2)
+  When I am on the login page
+  And I follow "Create Account"
+  Then I fill in "Name" with "Alan"
+  Then I fill in "Email" with "yp2604@columbia.edu"
+  Then I fill in "Password" with "asd123"
+  Then I fill in "Confirm Password" with "asd123"
+  Then I press "Sign Up"
+  Then I should see "Account exists. Please try again."
+
+Scenario: Manager failed to register(3)
+  When I am on the login page
+  And I follow "Create Account"
+  Then I fill in "Name" with "Alan"
+  Then I fill in "Email" with "sy3006@columbia.edu"
+  Then I fill in "Password" with ""
+  Then I fill in "Confirm Password" with "asd"
+  Then I press "Sign Up"
+  Then I should see "Invalid password. Please try again."

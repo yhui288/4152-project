@@ -27,7 +27,7 @@ end
 
 When /^I login with email "([^\"]*)" and password "([^\"]*)"$/ do |email, password|
   step "I am on the login page"
-  step "I fill in \"Email\" with \"yp2604@columbia.edu\""
-  step "I fill in \"Password\" with \"test123\""
+  step "I fill in \"Email\" with \"#{email}\""
+  step "I fill in \"Password\" with \"#{password}\""
   step "I press \"Log In\""
 end

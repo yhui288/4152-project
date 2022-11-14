@@ -47,7 +47,7 @@ RSpec.describe ReportsController, type: :controller do
       expect(Report.where(:building => 'new test')).not_to be_empty
       expect(Report.where(:building => 'test')).to be_empty
       expect(response).to redirect_to report_path(report)
-      get :destroy, {:id => report.id}
+      # get :destroy, {:id => report.id}
     end
   end
 

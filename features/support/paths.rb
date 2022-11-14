@@ -23,9 +23,9 @@ module NavigationHelpers
     
     when /^the home page$/ then root_path
     when /^the submit report page$/ then new_report_path
-    when /^the manager page$/ then reports_path(:problem_type => {:problem_type => "All"})
+    when /^the manager page$/ then reports_path
     when /^the QR code generation page$/ then qrcode_path
-    when /^the reports page$/ then reports_path(:problem_type => {:problem_type => "All"})
+    when /^the reports page$/ then reports_path
     when /^the detail page for Report "(.*)"$/ then report_path(Report.find($1))
     when /^the edit page for Report "(.*)"$/ then edit_report_path(Report.find($1))
     when /^the submit report page of "(.*)" in "(.*)"$/ then new_report_path(:report => {:building => $2, :area => $1})

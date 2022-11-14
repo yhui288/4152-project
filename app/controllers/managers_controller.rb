@@ -29,7 +29,7 @@ class ManagersController < ApplicationController
     end
 
     def show
-        @manager = Manager.find(params[:manager_id])
+        # @manager = Manager.find(params[:manager_id])
     end
 
     private
