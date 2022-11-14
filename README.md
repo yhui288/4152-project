@@ -42,20 +42,25 @@ bundle exec rails server
 
 5. Open [http://localhost:3000/](http://localhost:3000/) in a browser
 
-## Features
+## Features (iter1)
 - Users can submit a report (by scanning a QR code or directly visiting the website)
 - Managers can view a list of requests
 - Managers can update their status
 - Managers can generate QR code for a place so that users can submit a report by scanning the QR code on the wall
 
+## Feature (iter2)
+- Refine the report form (add description and image uploading)
+- Add manager authentication (need signup with lionmail)
+- Managers can add comments to reports
+- Adjust some UI components
+- Fix two bugs from iter1
+
 ## TODO
 - Update UI: our project is built under the Homework's framework so the UIs is similar to homework and pretty simple now
-<!-- - Refine the report form (add 'description' and image uploading)
-- Add login and role selection for managers
-- Add reports arrangement -->
+- Send emails to managers when an urgent report is submitted
 - ...
 
 ## Reference
-1. User login system
+- User login system
     - [Creating a User Login System - Ruby on Rails](https://dev.to/kjdowns/creating-a-user-login-system-ruby-on-rails-2kl2)
     - [Authentication with Bcrypt](https://www.ananunesdasilva.com/posts/authentication-with-bcrypt)

@@ -9,3 +9,4 @@ log/
 tmp/
 vendor/bundle
 public/uploads
+*.pdf
