@@ -10,6 +10,10 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe SessionsHelper, type: :helper do
-  # 
+
+RSpec.describe ApplicationHelper, type: :helper do
+  helper ApplicationHelper
+  it "invalid loggin" do
+    expect(!!logged_in?).to be false
+  end
 end

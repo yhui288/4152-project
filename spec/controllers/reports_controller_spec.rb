@@ -111,6 +111,13 @@ RSpec.describe ReportsController, type: :controller do
       get :index,{:show_complete => "1"}, {:manager_id => 1}
       expect(assigns(:reports).length == 4)
     end
+
+    it "see Electronic" do
+      get :index,{:problem_type => {:problem_type => "Electronic"}}, {:manager_id => 1}
+      assigns(:reports).each do |report|
+        expect(report['problemtype']).to eq 'Electronic'
+      end
+    end
   end
 
   describe "manage report" do
