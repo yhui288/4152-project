@@ -54,7 +54,7 @@ bundle exec rails server
 - Managers can add comments to reports
 - Managers can filter reports by type of work
 - Adjust some UI components
-- Fix two bugs from iter1
+- Fix two bugs from iter1 (Format of UNI and More tests)
 
 ## TODO
 - Update UI: our project is built under the Homework's framework so the UIs is similar to homework and pretty simple now
