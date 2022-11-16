@@ -52,6 +52,7 @@ bundle exec rails server
 - Refine the report form (add description and image uploading)
 - Add manager authentication (need signup with lionmail)
 - Managers can add comments to reports
+- Managers can filter reports by type of work
 - Adjust some UI components
 - Fix two bugs from iter1
 
