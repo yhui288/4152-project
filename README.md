@@ -53,9 +53,14 @@ bundle exec rails server
 - Add manager authentication (need signup with lionmail)
 - Managers can filter reports by problem type
 - Managers can add comments to reports
-- Managers can filter reports by type of work
 - Adjust some UI components
 - Fix two bugs from iter1 (Format of UNI and More tests)
+
+## Feature (demo)
+- Send Email notification to reporter when a report is marked as completed.
+    * To test this function, please submit a new report with your uni
+    * When a report is marked as complete, a email notification will send to your lionmail by 1023990429@qq.com
+    * Once a report has been submitted, the uni cannot be changed
 
 ## TODO
 - Update UI: our project is built under the Homework's framework so the UIs is similar to homework and pretty simple now
