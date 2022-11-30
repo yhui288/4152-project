@@ -1,5 +1,5 @@
 <!--  app/views/reports/show.html.erb -->
-<h2>Specific Details of Issue </h2>
+<h2 class="text-columbia">Specific Details of Issue </h2>
 
 <ul id="details">
   <h2 style="font-size: 22px;">Location: </h2>
@@ -53,7 +53,7 @@
     <%= form_tag addcmt_report_path(@report) do %>
       <div class="form-row">
         <%= text_field :comment, :cmt, :class => 'form-control col-sm-5' %>
-        <%= submit_tag 'Add Comment', :class => 'btn btn-success' %>
+        <%= submit_tag 'Add Comment', :class => 'btn btn-columbia' %>
       </div>
     <% end %>
   </li>
@@ -62,11 +62,11 @@
 <br>
 
 <div class="row">
-  <%= link_to 'Management', edit_report_path(@report), :class => 'btn btn-success col-2' %>
+  <%= link_to 'Management', edit_report_path(@report), :class => 'btn btn-columbia col-2' %>
   <% if @report.status == "Uncompleted"%>
     <%= link_to 'Mark as Completed', complete_report_path(@report), 'data-confirm' => 'Are you sure?', :class => 'btn btn-danger col-2' %>
   <% else %>
     <div class="btn btn-primary col-2"> Already compeleted </div>
   <% end %>
-  <%= link_to 'Back to Report List', reports_path, :class => 'btn btn-success col-2' %>
+  <%= link_to 'Back to Report List', reports_path, :class => 'btn btn-columbia col-2' %>
 </div>

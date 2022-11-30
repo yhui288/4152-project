@@ -1,9 +1,12 @@
 <!-- app/views/pages/home.html.erb -->
-<h2> Welcome! </h2>
 
-<div class="col">
-  <%= link_to 'Submit a Report', new_report_path, :class => 'btn btn-danger col-2' %>
+
+
+<div class="center-screen">
+  <h1 class="text-columbia"> Welcome! </h1>
   <br>
-  <br>
-  <%= link_to 'Manager Login', login_path, :class => 'btn btn-success col-2' %>
+  <div class="display-inline">
+    <%= link_to 'Submit a Report', new_report_path, :class => 'btn btn-columbia col-4' %>
+    <%= link_to 'Manager Login', login_path, :class => 'btn btn-columbia col-4' %>
+  </div>
 </div>

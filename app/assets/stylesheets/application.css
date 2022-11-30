@@ -21,7 +21,45 @@
     color: inherit; /* blue colors for links too */
     text-decoration: inherit; /* no underline */
 }
+
 .title:hover{
     color: inherit; /* blue colors for links too */
     text-decoration: inherit; /* no underline */
+}
+
+.btn-columbia {
+    font-weight: bold;
+    color: white;
+    background-color:#6cace4;
+}
+
+.text-columbia {
+    color: #555555;
+}
+
+.center-screen {
+    position: fixed;
+    top: 35%;
+    left: 25%;
+    width: 50%;
+    height: 20%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.display-inline {
+    display: inline;
+}
+
+#form {
+    color: #555555;
+}
+
+#reports {
+    color: #555555;
+}
+
+#details {
+    color: #555555;
 }

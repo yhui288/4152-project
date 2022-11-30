@@ -1,11 +1,11 @@
-<h2>Log In</h2>
+<h2 class="text-columbia">Log In</h2>
 
-<%= form_tag login_path do %>
+<%= form_tag login_path, :id => 'form' do %>
   <%= label :manager, :email, 'Email', :class => 'col-form-label' %>
   <%= text_field :manager, :email, :class => 'form-control' %>
   <%= label :manager, :password, 'Password', :class => 'col-form-label' %>
   <%= password_field :manager, :password, :class => 'form-control' %>
   <br/>
-  <%= submit_tag 'Log In', :class => 'btn btn-success' %>
-  <%= link_to 'Create Account', new_manager_path, :class => 'btn btn-success' %>
+  <%= submit_tag 'Log In', :class => 'btn btn-columbia' %>
+  <%= link_to 'Create Account', new_manager_path, :class => 'btn btn-columbia' %>
 <% end %>

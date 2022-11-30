@@ -1,6 +1,6 @@
-<h2>Sign Up</h2>
+<h2 class="text-columbia">Sign Up</h2>
 
-<%= form_tag managers_path, :class => 'form' do %>
+<%= form_tag managers_path, :class => 'form', :id => 'form' do %>
   <%= label :manager, :name, 'Name', :class => 'col-form-label' %>
   <%= text_field :manager, :name, :class => 'form-control' %>
   <%= label :manager, :email, 'Email', :class => 'col-form-label' %>
@@ -10,5 +10,5 @@
   <%= label :manager, :password_confirmation, 'Confirm Password', :class => 'col-form-label' %>
   <%= password_field :manager, :password_confirmation, :class => 'form-control' %>
   <br/>
-  <%= submit_tag 'Sign Up', :class => 'btn btn-success' %>
+  <%= submit_tag 'Sign Up', :class => 'btn btn-columbia' %>
 <% end %>

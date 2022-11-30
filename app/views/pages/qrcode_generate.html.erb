@@ -1,14 +1,14 @@
 <!-- app/views/pages/qr_code_generate.html.erb -->
 <!-- referece: https://dev.to/collimarco/building-a-qr-code-generator-with-ruby-on-rails-28ki -->
 
-<h2>QR Code Generator</h2>
+<h2 class="text-columbia">QR Code Generator</h2>
 
-<%= form_tag qrcode_download_path, :method => :get, :class => 'form' do %>
+<%= form_tag qrcode_download_path, :method => :get, :class => 'form', :id => 'form' do %>
   <%= label :report, :building, 'Location: Building', :class => 'col-form-label' %>
   <%= text_field :report, :building, :class => 'form-control' %>
   <%= label :report, :area, 'Location: Area', :class => 'col-form-label' %>
   <%= text_field :report, :area, :class => 'form-control' %>
   <br/>
-  <%= submit_tag 'Generate', :class => 'btn btn-success' %>
+  <%= submit_tag 'Generate', :class => 'btn btn-columbia' %>
   <%= link_to 'Cancel', reports_path, :class => 'btn btn-secondary' %>
 <% end %>

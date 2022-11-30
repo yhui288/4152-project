@@ -2,11 +2,11 @@
 <!--  This file is app/views/reports/index.html.erb -->
 
 
-<h2>ALL Existing Reports</h2>
+<h2 class="text-columbia">ALL Existing Reports</h2>
 
-<h5> Filters: </h5>
+<h5 class="text-columbia"> Filters: </h5>
 
-<%= form_tag reports_path, method: :get, id: 'filter_form' do %>
+<%= form_tag reports_path, method: :get, id: 'form' do %>
   <div class="form-check  form-check-inline">
     <%= label_tag "emer_only", "Show Urgent Reports Only", class: 'form-check-label' %>
     <%= check_box_tag "emer_only", "1",  @emer_only_checked, class: 'form-check-input' %>
@@ -21,7 +21,7 @@
       <%= select "problem_type", "problem_type", @problemlist, {:selected=>@selected}, :class => 'form-control' %>
     </div>
   </div>
-  <%= submit_tag 'Filter', id: 'filter_submit', class: 'btn btn-primary' %>
+  <%= submit_tag 'Filter', id: 'filter_submit', class: 'btn btn-columbia' %>
 <% end %>
 <br>
 <table class="table table-striped col-md-12" id="reports">
@@ -61,4 +61,4 @@
   </tbody>
 </table>
 <!-- <%= link_to 'Start New Report', new_report_path, :class => 'btn btn-success' %> -->
-<%= link_to 'Generate QR Code', qrcode_path, :class => 'btn btn-success col-2' %>
+<%= link_to 'Generate QR Code', qrcode_path, :class => 'btn btn-columbia col-2' %>
