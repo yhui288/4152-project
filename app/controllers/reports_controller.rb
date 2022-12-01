@@ -71,8 +71,10 @@ class ReportsController < ApplicationController
     report = Report.find params[:id]
     flash[:notice] = "Marked as complete successful"
     report.status = "Completed"
-    report.save
-    redirect_to report_path(report)
+    if report.save
+      NoticeMailer.send_notice(report.uni, report).deliver_later
+      redirect_to report_path(report)
+    end
   end
 
   def addcmt
