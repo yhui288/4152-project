@@ -56,11 +56,14 @@ bundle exec rails server
 - Adjust some UI components
 - Fix two bugs from iter1 (Format of UNI and More tests)
 
-## Feature (demo)
+## Feature (demo & launch)
 - Send Email notification to reporter when a report is marked as completed.
     * To test this function, please submit a new report with your uni
     * When a report is marked as complete, a email notification will send to your lionmail by 1023990429@qq.com
     * Once a report has been submitted, the uni cannot be changed
+- Adjust some UI components
+- Add more cucumber and RSpec tests
+
 
 ## TODO
 - Update UI: our project is built under the Homework's framework so the UIs is similar to homework and pretty simple now
