@@ -8,7 +8,13 @@ class Report < ActiveRecord::Base
     def self.check_and_create(report_params)
         if Report.where(building: report_params[:building], area: report_params[:area]).take.nil?
             report_params[:status] = "Uncompleted"
-            Report.create!(report_params)
+            report = Report.create!(report_params)
+            if report_params[:emergencylevel] == 'Urgent'
+                Manager.all.each do |manager|
+                  NoticeMailer.urgent_notice(manager.email, report).deliver_later
+                end
+                return "successfully published and managers are notified"
+            end
             return "successfully published"
         else
             return "Already been published"

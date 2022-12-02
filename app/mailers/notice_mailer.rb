@@ -6,4 +6,9 @@ class NoticeMailer < ApplicationMailer
     @uni_email = uni + "@columbia.edu"
     mail(to: @uni_email, subject: 'You repair request has been completed!')
   end
+
+  def urgent_notice(manager_email, report)
+    @report = report
+    mail(to: manager_email, subject: "Urgent Report in [#{@report.building}]")
+  end
 end

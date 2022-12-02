@@ -61,13 +61,13 @@ bundle exec rails server
     * To test this function, please submit a new report with your uni
     * When a report is marked as complete, a email notification will send to your lionmail by 1023990429@qq.com
     * Once a report has been submitted, the uni cannot be changed
-- Adjust some UI components
+- Send emails to managers when an urgent report is submitted
+- Adjust some UI components, now the website is COLUMBIA STYLE
 - Add more cucumber and RSpec tests
 
 
 ## TODO
-- Update UI: our project is built under the Homework's framework so the UIs is similar to homework and pretty simple now
-- Send emails to managers when an urgent report is submitted
+- A better UI (maybe)
 - ...
 
 ## Reference
