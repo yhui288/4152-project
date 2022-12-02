@@ -4,12 +4,12 @@
 # 
 
 reports = [
-	{:building => 'Butler',:area => 'Restroom 4th FL', :problemtype=> 'Plumbing', :emergencylevel => 'Urgent', :status => 'Uncompleted'},
-	  {:building => 'Pupin',:area => 'Lab1034', :problemtype=> 'Electronic', :emergencylevel => 'Urgent', :status => 'Uncompleted'},
-	  {:building => 'Wien',:area => 'Room 523', :problemtype=> 'Heat', :emergencylevel => 'Ordinary', :status => 'Uncompleted'},
-	  {:building => 'Uris',:area => 'Class Room 301', :problemtype=> 'CVN', :emergencylevel => 'Ordinary', :status => 'Uncompleted'},
-	  {:building => 'Butler',:area => 'Computer 52', :problemtype=> 'Internet', :emergencylevel => 'Ordinary', :status => 'Uncompleted'},
-	  ]
+	{:building => 'Butler',:area => 'Restroom 4th FL', :problemtype=> 'Plumbing', :emergencylevel => 'Urgent', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Pupin',:area => 'Lab1034', :problemtype=> 'Electronic', :emergencylevel => 'Urgent', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Wien',:area => 'Room 523', :problemtype=> 'Heat', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Uris',:area => 'Class Room 301', :problemtype=> 'CVN', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Butler',:area => 'Computer 52', :problemtype=> 'Internet', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
+]
 
 reports.each do |report|
 	Report.create!(report)
