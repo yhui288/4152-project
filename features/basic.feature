@@ -4,13 +4,16 @@ Feature: user report a repair
 Background: reports in database
 
   Given the following reports exist:
-  |building |area |problemtype | emergencylevel|status|
-  |Butler|Restroom 4th FL|Plumbing|Emergent|Uncomplete|
-  |Pupin|Lab1034|Electronic|Emergent|Uncomplete|
-  |Wien|Room 523|Heat|Ordinary|Uncomplete|
-  |Uris|Class Room 301|CVN|Ordinary|Uncomplete|
-  |Butler|Computer 52|Internet|Ordinary|Uncomplete|
+  |building |area |problemtype |emergencylevel |status |uni |
+  |Butler|Restroom 4th FL|Plumbing|Emergent|Uncomplete|yp2604|
+  |Pupin|Lab1034|Electronic|Emergent|Uncomplete|yp2604|
+  |Wien|Room 523|Heat|Ordinary|Uncomplete|yp2604|
+  |Uris|Class Room 301|CVN|Ordinary|Uncomplete|yp2604|
+  |Butler|Computer 52|Internet|Ordinary|Uncomplete|yp2604|
 
+  Given the following managers exist:
+  |email |password |name |
+  |yp2604@columbia.edu|test123|Yanghui Pang|
 
 Scenario: User reports a new issue
   Given I am on the submit report page
