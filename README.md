@@ -13,7 +13,7 @@
 ## Versions
 - Ruby: 2.6.6
 - Rails: 4.2.10
-- Machine: MacBook M1
+- Machine: MacBook Pro M1
 
 ## Setup
 1. Clone our project repo
@@ -57,18 +57,13 @@ bundle exec rails server
 - Fix two bugs from iter1 (Format of UNI and More tests)
 
 ## Feature (demo & launch)
-- Send Email notification to reporter when a report is marked as completed.
+- Send emails to reporter when a report is marked as completed.
     * To test this function, please submit a new report with your uni
-    * When a report is marked as complete, a email notification will send to your lionmail by 1023990429@qq.com
+    * When a report is marked as complete, a email notification will send to your lionmail from 1023990429@qq.com
     * Once a report has been submitted, the uni cannot be changed
 - Send emails to managers when an urgent report is submitted
 - Adjust some UI components, now the website is COLUMBIA STYLE
-- Add more cucumber and RSpec tests
-
-
-## TODO
-- A better UI (maybe)
-- ...
+- Add more cucumber and rspec tests
 
 ## Reference
 - User login system

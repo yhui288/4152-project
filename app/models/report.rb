@@ -2,7 +2,38 @@ class Report < ActiveRecord::Base
     has_many :comments
     mount_uploader :file, FileUploader
     def self.problemlist
-        return ['Carpentry', 'Electronic','Floor','Furniture','Laundry','Mechanical','Pest Control','Housekeeping','Heating/Air Conditioning', 'Plumbing', 'Other']
+        return [
+            "Miscellaneous/Other",
+            "Air Conditioning/Heating",
+            "Bathroom/Restroom Items",
+            "Ceiling",
+            "Classroom Equipment",
+            "Clean + Go Green",
+            "Cleaning",
+            "Computer & Projector",
+            "Detectors/Alarms", 
+            "Door",
+            "Elevator",
+            "Floor",
+            "Furnishings - Classroom",
+            "Furnishings - Other",
+            "Hand Sanitizer",
+            "Lab Fixtures/Services",
+            "Lights",
+            "Locks & Keys",
+            "Moving/Carting",
+            "Paint",
+            "Pest Control",
+            "Plumbing Services",
+            "Power",
+            "Recycling",
+            "Stairs - Eexterior",
+            "Stairs - Interior",
+            "Switches/Sockets",
+            "Walkway - Exterior",
+            "Wall",
+            "Windows/Glass",
+        ]
     end
 
     def self.check_and_create(report_params)
