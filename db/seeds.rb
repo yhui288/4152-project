@@ -4,11 +4,11 @@
 # 
 
 reports = [
-	{:building => 'Butler',:area => 'Restroom 4th FL', :problemtype=> 'Plumbing', :emergencylevel => 'Urgent', :status => 'Uncompleted', :uni => 'yp2604'},
-	{:building => 'Pupin',:area => 'Lab1034', :problemtype=> 'Electronic', :emergencylevel => 'Urgent', :status => 'Uncompleted', :uni => 'yp2604'},
-	{:building => 'Wien',:area => 'Room 523', :problemtype=> 'Heat', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
-	{:building => 'Uris',:area => 'Class Room 301', :problemtype=> 'CVN', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
-	{:building => 'Butler',:area => 'Computer 52', :problemtype=> 'Internet', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Butler',:area => 'Restroom 4th FL', :problemtype=> 'Plumbing Services', :emergencylevel => 'Urgent', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Pupin',:area => 'Lab1034', :problemtype=> 'Power', :emergencylevel => 'Urgent', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Wien',:area => 'Room 523', :problemtype=> 'Air Conditioning/Heating', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Uris',:area => 'Class Room 301', :problemtype=> 'Computer & Projector', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
+	{:building => 'Butler',:area => 'Computer 52', :problemtype=> 'Internet/WIFI', :emergencylevel => 'Ordinary', :status => 'Uncompleted', :uni => 'yp2604'},
 ]
 
 reports.each do |report|

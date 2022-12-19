@@ -6,11 +6,11 @@ Background: reports and managers in database
 
   Given the following reports exist:
   |building |area |problemtype |emergencylevel |status |uni |
-  |Butler|Restroom 4th FL|Plumbing|Urgent|Uncompleted|yp2604|
-  |Pupin|Lab1034|Electronic|Urgent|Uncompleted|yp2604|
-  |Wien|Room 523|Heat|Ordinary|Uncompleted|yp2604|
-  |Uris|Class Room 301|CVN|Ordinary|Completed|yp2604|
-  |Butler|Computer 52|Internet|Ordinary|Uncompleted|yp2604|
+  |Butler|Restroom 4th FL|Plumbing Services|Urgent|Uncompleted|yp2604|
+  |Pupin|Lab1034|Power|Urgent|Uncompleted|yp2604|
+  |Wien|Room 523|Air Conditioning/Heating|Ordinary|Uncompleted|yp2604|
+  |Uris|Class Room 301|Computer & Projector|Ordinary|Completed|yp2604|
+  |Butler|Computer 52|Internet/WIFI|Ordinary|Uncompleted|yp2604|
 
   Given the following managers exist:
   |email |password |name |
@@ -51,7 +51,7 @@ Scenario: Manager filters issues by Emergency Level
 Scenario: Manager filters issues by Problem Type
   When I login with email "yp2604@columbia.edu" and password "test123"
   Given I am on the manager page
-  When I select "Laundry" from "Problem Type"
+  When I select "Power" from "Problem Type"
   When I press "Save"
   Then I should not see "Wien"
 

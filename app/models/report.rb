@@ -18,6 +18,7 @@ class Report < ActiveRecord::Base
             "Furnishings - Classroom",
             "Furnishings - Other",
             "Hand Sanitizer",
+            "Internet/WIFI",
             "Lab Fixtures/Services",
             "Lights",
             "Locks & Keys",
